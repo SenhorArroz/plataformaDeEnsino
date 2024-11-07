@@ -28,7 +28,6 @@ class MenuSalaController extends Controller
         $slug = $request['slug'];
         $postName = $request['postName'];
         $id = $request['post_id'];
-        dd($request);
         return redirect()->route('mural.post', ['slug' => $slug, 'postName' => $postName, 'id' => $id]);
     }
 }

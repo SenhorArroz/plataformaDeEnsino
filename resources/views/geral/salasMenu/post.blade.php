@@ -13,14 +13,7 @@
         <div>
             <p>Área de comentários <i class="bi bi-chat-left-text"></i></p>
 
-            <div class="p-3 position-fixed " style="bottom: 15px; right: 10px;">
-                <div class="mt-auto text-sm-end ">
-                    <button type="button" class="btn btn-success rounded-circle " style="width: 80px; height: 80px"
-                        data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        <i class="bi bi-plus-circle-dotted heading" style="font-size: 40px"></i>
-                    </button>
-                </div>
-            </div>
+
             <!-- Modal comentário -->
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog border-success modal-dialog-scrollable modal-dialog-centered">
@@ -32,6 +25,7 @@
                         <div class="modal-body">
                             <form action="{{ route('mural.postComment') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
+                                <input type="hidden" name="slug" value="{{ $salas->salaSlug }}">
                                 <input type="hidden" name="post_id" value="{{ $post->id }}">
                                 <input type="hidden" name="postName" value="{{ $post->titulo }}">
                                 <input type="hidden" name="criador_id" value="{{ auth()->user()->id }}">
@@ -52,15 +46,29 @@
             </div>
 
             @isset($comments)
-                @foreach ($comments as $comment)
-                        <div class="card border-danger mb-3" style="max-width: 18rem;">
-                            <div class="card-header">{{ $comment->creator_name }}</div>
-                            <div class="card-body text-danger">
-                                <p class="card-text">{{ $comment->texto }}</p>
-                            </div>
+                <div class="container"> </div>
+                <div class=" row  mb-3 " style="max-width: 40% ">
+                    @foreach ($comments as $comment)
+                        <div class="border-bottom border-danger-subtle  d-flex mb-2" style="">
+                            <div class="fs-5 mb-0">{{ $comment->creator_name }}</div>
+                            <p class="mb-0 ms-3" style="font-size:10px; margin-bottom: 0; align-self:flex-end;">
+                                {{ $comment->created_at }}</p>
                         </div>
-                @endforeach
-            @endisset
+                        <div class="card-body border-bottom border-success-subtle">
+                            <p class="card-text">{{ $comment->texto }}</p>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        @endisset
+    </div>
+    </div>
+    <div class="p-3 position-fixed " style="bottom: 15px; right: 10px;">
+        <div class="mt-auto text-sm-end ">
+            <button type="button" class="btn btn-success rounded-circle " style="width: 80px; height: 80px"
+                data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <i class="bi bi-plus-circle-dotted heading" style="font-size: 40px"></i>
+            </button>
         </div>
     </div>
 @endsection
