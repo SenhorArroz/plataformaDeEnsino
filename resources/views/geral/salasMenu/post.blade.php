@@ -47,7 +47,7 @@
 
             @isset($comments)
                 <div class="container"> </div>
-                <div class=" row  mb-3 " style="max-width: 40% ">
+                <div class="row mb-3" style="max-width: 40% ">
                     @foreach ($comments as $comment)
                         <div class="border-bottom border-danger-subtle  d-flex mb-2" style="">
                             <div class="fs-5 mb-0">{{ $comment->creator_name }}</div>
@@ -58,7 +58,7 @@
                             <p class="card-text">{{ $comment->texto }}</p>
                         </div>
                     @endforeach
-                </div>
+                </div> 
             </div>
         @endisset
     </div>
