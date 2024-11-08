@@ -20,11 +20,13 @@ Route::post('/registro', [UserController::class, 'create'])->name('login.registr
 Route::get('/logout', [loginController::class, 'logout'])->name('login.logout');
 
 Route::post('/salacreate', [SalasController::class, 'create'])->name('sala.create');
+Route::get('/salaDelete/{id}', [SalasController::class, 'destroy'])->name('sala.delete');
 Route::post('/salajoin', [SalasController::class, 'join'])->name('sala.join');
 Route::get('/salasdeaula/{salaSlug}', [SiteController::class, 'acessarSala'])->name('sala.sala');
 Route::get('/salaMural/{slug}', [SiteController::class, 'salaMural'])->name('sala.mural');
 Route::get('/salaAtividades/{slug}', [SiteController::class, 'salaAtividades'])->name('sala.atividade');
 Route::get('/salaIntegrantes/{slug}', [SiteController::class, 'salaIntegrantes'])->name('sala.integrantes');
+
 
 Route::get('/salaMural/{slug}/post/{postName}/{id}', [SiteController::class, 'postView'])->name('mural.post');
 Route::post('/salaPostar', [MenuSalaController::class, 'criarPost'])->name('sala.post');

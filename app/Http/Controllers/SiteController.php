@@ -13,7 +13,6 @@ use \App\Models\Salas_aluno;
 class SiteController extends Controller
 {
     public function index(){
-        
         $viewName = 'home';
         return view('geral.home', compact('viewName'));
     }
@@ -83,7 +82,12 @@ class SiteController extends Controller
         $viewName = 'salasdeaula';
         $salas = Sala::where('salaSlug', $slug)->first();
         $professor = User::where('id', $salas->criador_id)->first();
-        return view('geral.salasMenu.integrantes', compact('salas', 'viewName', 'professor'));
+        $alunosId = Salas_aluno::where('id_salas', $salas->id)->get();
+        $alunos = [];
+                foreach($alunosId as $id){
+            $alunos[] = User::where('id', $id->id_user)->first();
+        }
+        return view('geral.salasMenu.integrantes', compact('salas', 'viewName', 'professor', 'alunos'));
     }
     public function postView($slug, $postName, $id){
         $viewName = 'salasdeaula';

@@ -11,6 +11,7 @@ class Salas_aluno extends Model
     use HasFactory;
 
     protected $fillable = [
+        'id',
         'id_user',
         'id_salas',
     ];

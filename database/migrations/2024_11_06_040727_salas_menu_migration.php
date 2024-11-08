@@ -42,7 +42,7 @@ return new class extends Migration
             $table->id();
             $table->text('texto');
             $table->unsignedBigInteger('criador_id');
-            $table->foreign('criador_id')->references('id')->on('users');
+            $table->foreign('criador_id')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedBigInteger('post_id');
             $table->foreign('post_id')->references('id')->on('salas')->onDelete('cascade');
             $table->timestamps();
@@ -51,7 +51,7 @@ return new class extends Migration
             $table->id();
             $table->text('texto');
             $table->unsignedBigInteger('criador_id');
-            $table->foreign('criador_id')->references('id')->on('users');
+            $table->foreign('criador_id')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedBigInteger('sala_id');
             $table->foreign('sala_id')->references('id')->on('posts')->onDelete('cascade');
             $table->timestamps();
@@ -60,7 +60,7 @@ return new class extends Migration
             $table->id();
             $table->integer('resposta');
             $table->unsignedBigInteger('aluno_id');
-            $table->foreign('aluno_id')->references('id')->on('users');
+            $table->foreign('aluno_id')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedBigInteger('atividade_id');
             $table->foreign('atividade_id')->references('id')->on('atividades')->onDelete('cascade');
             $table->string('link')->nullable();
