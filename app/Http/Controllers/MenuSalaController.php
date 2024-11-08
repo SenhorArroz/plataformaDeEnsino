@@ -10,6 +10,13 @@ class MenuSalaController extends Controller
 {
     public function criarPost(Request $request){
         $comment = $request->all();
+        $request->validate([
+            'titulo' => 'required',
+            'content' => 'required',
+        ], [
+                'titulo.required' => 'Ponha um título na postagem.',
+                'content.required' => 'Escreva um texto para postar.',
+            ]);
         $post = Post::create([
             'sala_id' => $comment['sala_id'],
             'titulo' => $comment['titulo'],
@@ -19,6 +26,11 @@ class MenuSalaController extends Controller
     }
     public function criarCommentPost(Request $request){
         $comment = $request->all();
+        $request->validate([
+            'texto' => 'required',
+        ], [
+                'texto.required' => 'Escreva um texto para postar.',
+            ]);
         $post = Comentariospost::create([
             'post_id' => $comment['post_id'],
             'criador_id' => $comment['criador_id'],

@@ -18,7 +18,7 @@
                 </div>
                 @error('firstName')
                     <div class="error">
-                        <p class="text-danger-emphasis" style="font-size: 13px">{{ $message }}</p>
+                        <p class="text-danger-emphasis border border-danger rounded-pill" style="font-size: 13px;">{{ $message }}</p>
                     </div>
                 @enderror
                 <div class="input-group mb-3">
@@ -31,7 +31,7 @@
                 </div>
                 @error('lastName')
                     <div class="error">
-                        <p class="text-danger-emphasis" style="font-size: 13px">{{ $message }}</p>
+                        <p class="text-danger-emphasis border border-danger rounded-pill" style="font-size: 13px;">{{ $message }}</p>
                     </div>
                 @enderror
                 <div class="input-group mb-3">
@@ -44,7 +44,7 @@
                 </div>
                 @error('email')
                     <div class="error">
-                        <p class="text-danger-emphasis" style="font-size: 13px">{{ $message }}</p>
+                        <p class="text-danger-emphasis border border-danger rounded-pill" style="font-size: 13px;">{{ $message }}</p>
                     </div>
                 @enderror
                 <div class="input-group mb-3">
@@ -57,7 +57,7 @@
                 </div>
                 @error('password')
                     <div class="error">
-                        <p class="text-danger-emphasis" style="font-size: 13px">{{ $message }}</p>
+                        <p class="text-danger-emphasis border border-danger rounded-pill" style="font-size: 13px;">{{ $message }}</p>
                     </div>
                 @enderror
                 <div class="form-floating">

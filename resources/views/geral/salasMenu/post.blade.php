@@ -36,6 +36,11 @@
                                         <label for="floatingTextarea2">Texto</label>
                                     </div>
                                 </div><br>
+                                @error('texto')
+                                <div class="error">
+                                    <p class="text-danger-emphasis border border-danger rounded-pill" style="font-size: 13px;">{{ $message }}</p>
+                                </div>
+                            @enderror
                                 <div class="modal-footer border-danger">
                                     <button class="btn btn-danger" data-bs-dismiss="modal">Voltar</button>
                                     <button class="btn btn-success">Comentar</button>

@@ -58,9 +58,19 @@
                                 <label for="floatingInputGroup1">Titulo</label>
                             </div>
                         </div>
+                        @error('titulo')
+                                <div class="error">
+                                    <p class="text-danger-emphasis border border-danger rounded-pill" style="font-size: 13px;">{{ $message }}</p>
+                                </div>
+                                @enderror
                         <div class="form-floating " data-bs-theme="light">
                             <div id="editor" class="rounded text-light"></div>
                             <input type="hidden" name="content" id="content">
+                            @error('content')
+                                <div class="error">
+                                    <p class="text-danger-emphasis border border-danger rounded-pill" style="font-size: 13px;">{{ $message }}</p>
+                                </div>
+                                @enderror
                         </div><br>
                         <style>
                             /* Customizando o Quill para dark mode */
@@ -130,9 +140,6 @@
                                 placeholder: 'Digite seu post',
                                 modules: {
                                     toolbar: [
-                                        [{
-                                            'header': '2'
-                                        }],
                                         [{
                                             'list': 'ordered'
                                         }, {

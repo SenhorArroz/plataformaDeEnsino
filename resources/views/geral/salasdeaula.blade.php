@@ -26,7 +26,7 @@
                                                         <div class="card-body">
                                                             <h5 class="card-title fs-5">{{ $sala->name }}</h5>
                                                             <p class="card-text fs-6">
-                                                                {{ Str::limit($sala->descricao, 20, '...') }}</p>
+                                                                {{ Str::limit($sala->descricao, 40, '...') }}</p>
                                                             <a href="{{ route('sala.sala', $sala->salaSlug) }}"
                                                                 class="btn btn-primary">Visualizar</a>
                                                         </div>
@@ -78,8 +78,8 @@
                                     aria-label="ENome da sala de aula" aria-describedby="basic-addon1" name="name">
                             </div>
                             @error('name')
-                                <div class="error">
-                                    <p class="text-danger-emphasis" style="font-size: 13px">{{ $message }}</p>
+                                <div class="error ">
+                                    <p class="text-danger-emphasis border border-danger rounded-pill" style="font-size: 13px;">{{ $message }}</p>
                                 </div>
                             @enderror
                             <div class="form-floating">
@@ -89,7 +89,7 @@
                             </div><br>
                             @error('descricao')
                                 <div class="error">
-                                    <p class="text-danger-emphasis" style="font-size: 13px">{{ $message }}</p>
+                                    <p class="text-danger-emphasis border border-danger rounded-pill" style="font-size: 13px;">{{ $message }}</p>
                                 </div>
                             @enderror
                             <div class="input-group mb-3">

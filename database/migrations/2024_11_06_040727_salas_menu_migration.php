@@ -19,14 +19,25 @@ return new class extends Migration
             $table->foreign('sala_id')->references('id')->on('salas')->onDelete('cascade');
             $table->timestamps();
         });
-        Schema::create('atividades', function (Blueprint $table) {
+        Schema::create('categrias', function (Blueprint $table) {
             $table->id();
-            $table->string('titulo');
-            $table->text('texto');
+            $table->string('name');
             $table->unsignedBigInteger('sala_id');
             $table->foreign('sala_id')->references('id')->on('salas')->onDelete('cascade');
             $table->timestamps();
         });
+        Schema::create('atividades', function (Blueprint $table) {
+            $table->id();
+            $table->string('titulo');
+            $table->text('texto');
+            $table->integer('resposta');
+            $table->unsignedBigInteger('sala_id');
+            $table->foreign('sala_id')->references('id')->on('salas')->onDelete('cascade');
+            $table->unsignedBigInteger('categoria_id');
+            $table->foreign('categoria_id')->references('id')->on('categrias')->onDelete('cascade');
+            $table->timestamps();
+        });
+
         Schema::create('comentariosPosts', function (Blueprint $table) {
             $table->id();
             $table->text('texto');

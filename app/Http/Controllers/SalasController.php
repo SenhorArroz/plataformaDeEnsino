@@ -25,10 +25,11 @@ class SalasController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'descricao' => 'required',
+            'descricao' => 'required|max:40',
         ], [
                 'name.required' => 'Ponha um nome na sala!',
-                'descricao.required' => 'Ponha uma descrição na sala!.',
+                'descricao.required' => 'Ponha uma descrição na sala!',
+                'descricao.max' => 'Maximo de 40 caracteres',
             ]);
         $sala = $request->all();
         $bytes = openssl_random_pseudo_bytes(5, $strong);
